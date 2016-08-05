@@ -23,14 +23,7 @@ public class ParachuteCollisionHandler : MonoBehaviour {
     {
         if (coll.tag == "Player")
         {
-            parachuteActive = false;
-            disableParachute();
+            gameObject.SetActive(false);
         }
-    }
-
-    void disableParachute()
-    {
-        sr.enabled = false;
-        coll.enabled = false;
     }
 }

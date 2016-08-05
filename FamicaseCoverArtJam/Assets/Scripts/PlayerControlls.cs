@@ -12,7 +12,8 @@ public class PlayerControlls : MonoBehaviour {
 
     public float jumpHeight;
     Vector3 jumpDestination;
-    Vector3 previousPosition;
+    public Vector3 previousPosition
+    { get; private set; }
 
     public float maxLeft;
     public float maxRight;
@@ -22,6 +23,7 @@ public class PlayerControlls : MonoBehaviour {
     bool jumping;
 
     void Start () {
+        previousPosition = transform.position;
         rigid = GetComponent<Rigidbody2D>();
         jumping = false;
 	}
