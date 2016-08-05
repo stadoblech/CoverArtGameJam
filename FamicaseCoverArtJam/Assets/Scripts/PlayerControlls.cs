@@ -20,7 +20,10 @@ public class PlayerControlls : MonoBehaviour {
 
     Rigidbody2D rigid;
 
-    bool jumping;
+    public bool jumping
+    {
+        get; private set;
+    }
 
     void Start () {
         previousPosition = transform.position;

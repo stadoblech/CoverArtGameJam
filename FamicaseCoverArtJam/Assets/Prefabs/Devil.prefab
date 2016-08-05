@@ -37,7 +37,7 @@ GameObject:
   - 114: {fileID: 114000013060526296}
   m_Layer: 0
   m_Name: Devil
-  m_TagString: Untagged
+  m_TagString: Devil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010777924606}
   - 61: {fileID: 61000013371732360}
+  - 114: {fileID: 114000010729274480}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -143,7 +144,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012006384768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.05, y: -1.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -204,9 +205,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.019327339, y: 0}
+  m_Offset: {x: -0.0066365562, y: 0.000000014901161}
   serializedVersion: 2
-  m_Size: {x: 0.7714906, y: 0.42101717}
+  m_Size: {x: 0.61365247, y: 0.42101717}
 --- !u!61 &61000013019770002
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -232,9 +233,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0045855045, y: -0.000000059604645}
   serializedVersion: 2
-  m_Size: {x: 0.70631313, y: 0.5217099}
+  m_Size: {x: 0.6360061, y: 0.5217099}
 --- !u!95 &95000013415603816
 Animator:
   serializedVersion: 3
@@ -252,6 +253,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010729274480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012352641148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e45c63160b8a054b8378ef233b828ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  devilAnimator: {fileID: 95000013415603816}
+  devilHandler: {fileID: 114000013060526296}
 --- !u!114 &114000011812976634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcc4f008d1295c499adfecb999c4e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testingDevil: 1
   fallingSpeed: 0.8
   movingSpeed: 2
   devilSpriteRenderer: {fileID: 212000011753083034}

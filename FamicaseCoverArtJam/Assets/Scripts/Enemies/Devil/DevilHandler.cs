@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DevilHandler : MonoBehaviour {
 
-
+    public bool testingDevil;
     public float fallingSpeed;
     public float movingSpeed;
 
@@ -21,6 +21,9 @@ public class DevilHandler : MonoBehaviour {
     GameObject parachute;
 
     Transform player;
+
+    PlayerControlls controlls;
+
     Vector2 playerGroundPosition;
     
     public SpriteRenderer devilSpriteRenderer;
@@ -35,12 +38,12 @@ public class DevilHandler : MonoBehaviour {
         colliders.SetActive(false);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerGroundPosition = player.GetComponent<PlayerControlls>().previousPosition;
+        controlls = player.GetComponent<PlayerControlls>();
+        playerGroundPosition = controlls.previousPosition;
     }
 
     void Update()
     {
-        print(playerGroundPosition);
         switch (devilMode)
         {
             case DevilMode.falling:
@@ -48,9 +51,10 @@ public class DevilHandler : MonoBehaviour {
                     if(parachute.activeSelf)
                     {
                         transform.position -= new Vector3(0, fallingSpeed * Time.deltaTime);
-                        
-                        if(transform.position.y <= playerGroundPosition.y)
+
+                        if (transform.position.y <= playerGroundPosition.y && !controlls.jumping)
                         {
+                            transform.position = new Vector3(transform.position.x,player.position.y);
                             devilMode = DevilMode.moving;
                             parachute.SetActive(false);
                             colliders.SetActive(true);
@@ -77,6 +81,10 @@ public class DevilHandler : MonoBehaviour {
         }
         if (!devilSpriteRenderer.isVisible)
         {
+            if(testingDevil)
+            {
+                return;
+            }
             Destroy(gameObject);
         }
     }
@@ -89,5 +97,11 @@ public class DevilHandler : MonoBehaviour {
             transform.Rotate(0,0,180);
         }
         turned = true;
+    }
+
+    public void killDevil()
+    {
+        colliders.SetActive(false);
+        devilMode = DevilMode.dead;
     }
 }
