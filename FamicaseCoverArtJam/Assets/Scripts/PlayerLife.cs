@@ -10,18 +10,19 @@ public class PlayerLife : MonoBehaviour {
     float blinkDuration;
 
     SpriteRenderer sr;
-    PlayerControlls controlls;
+    PlayerControlls playerControlls;
 
     GameController controller;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        playerControlls = GetComponent<PlayerControlls>();
     }
 
     void Start () {
         controller = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameController>();
-        controlls = GetComponent<PlayerControlls>();
+        
         
         numberOfLives = 3;
         numberOfBlinks = 6;
@@ -31,6 +32,7 @@ public class PlayerLife : MonoBehaviour {
     void OnEnable()
     {
         sr.enabled = true;
+        playerControlls.enabled = true;
     }
 	
 	void Update () {
@@ -39,9 +41,9 @@ public class PlayerLife : MonoBehaviour {
 
     public void getHit()
     {
+        playerControlls.enabled = false;
         controller.destroyAllEnemies();
         enemiesSpawner.SetActive(false);
-        controlls.enabled = false;
         StartCoroutine(blinking(numberOfBlinks));
     }
 
@@ -60,7 +62,7 @@ public class PlayerLife : MonoBehaviour {
 
     IEnumerator waitForGameOver()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         controller.initGameOver();
     }
 }

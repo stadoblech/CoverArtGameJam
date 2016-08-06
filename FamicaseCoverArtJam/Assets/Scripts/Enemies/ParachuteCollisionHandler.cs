@@ -5,12 +5,8 @@ public class ParachuteCollisionHandler : MonoBehaviour {
 
     public bool parachuteActive;
 
-    BoxCollider2D coll;
-    SpriteRenderer sr;
 
     void Start() {
-        coll = GetComponent<BoxCollider2D>();
-        sr = GetComponent<SpriteRenderer>();
         parachuteActive = true;
     }
 
@@ -23,6 +19,7 @@ public class ParachuteCollisionHandler : MonoBehaviour {
     {
         if (coll.tag == "Player")
         {
+            GameController.score += 2;
             gameObject.SetActive(false);
         }
     }

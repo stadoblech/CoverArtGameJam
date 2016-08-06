@@ -15,7 +15,7 @@ public class DevilHeadCollider : MonoBehaviour {
     {
         if (coll.tag == "Player")
         {
-            //Destroy(transform.root.gameObject);
+            GameController.score += 5;
             transform.root.GetComponent<DevilHandler>().killDevil();
         }
     }

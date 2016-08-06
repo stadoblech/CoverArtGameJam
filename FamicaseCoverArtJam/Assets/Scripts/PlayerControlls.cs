@@ -20,12 +20,16 @@ public class PlayerControlls : MonoBehaviour {
 
     Rigidbody2D rigid;
 
+    AudioSource jumpSound;
+
     public bool jumping
     {
         get; private set;
     }
 
     void Start () {
+
+        jumpSound = GetComponent<AudioSource>();
         previousPosition = transform.position;
         rigid = GetComponent<Rigidbody2D>();
         jumping = false;
@@ -48,6 +52,7 @@ public class PlayerControlls : MonoBehaviour {
 
         if (Input.GetKeyDown(moveUp) && !jumping)
         {
+            jumpSound.Play();
             rigid.velocity = new Vector2(0, 0);
             jumping = true;
             jumpDestination = new Vector2(transform.position.x, jumpHeight);
@@ -56,6 +61,7 @@ public class PlayerControlls : MonoBehaviour {
 
         if(jumping)
         {
+            
             JumpManeuvre();
         }
     }

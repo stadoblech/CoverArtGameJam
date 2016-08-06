@@ -4,7 +4,7 @@ using System.Collections;
 public class DevilBodyCollider : MonoBehaviour {
 
     public Animator devilAnimator;
-    public DevilHandler devilHandler;
+    public MonoBehaviour enemyHandler;
 
     void Start () {
         
@@ -20,6 +20,7 @@ public class DevilBodyCollider : MonoBehaviour {
         if (coll.tag == "Player")
         {
             coll.GetComponent<PlayerLife>().getHit();
+            GetComponent<AudioSource>().Play();
         }
     }
 }

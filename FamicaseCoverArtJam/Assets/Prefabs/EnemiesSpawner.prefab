@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013725764606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.9, y: -1.84, z: 0}
+  m_LocalPosition: {x: 6.9, y: -1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010164434094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.29, y: -1.84, z: 0}
+  m_LocalPosition: {x: -7.29, y: -1.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -168,5 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devil: {fileID: 1000012006384768, guid: 52e26771a06b4a94f8609ae8e175e9e2, type: 2}
-  ghost: {fileID: 0}
-  respawnCooldown: 1.8
+  ghost: {fileID: 1000012818836290, guid: f7755e433cd8c6e4bbf46133b7432041, type: 2}
+  devilMinRespawn: 1.3
+  devilMaxRespawn: 2.3
+  ghostMinRespawn: 2.8
+  ghostMaxRespawn: 3.5

@@ -28,8 +28,10 @@ public class DevilHandler : MonoBehaviour {
     
     public SpriteRenderer devilSpriteRenderer;
 
+    AudioSource parachuteFallSound;
     void Start()
     {
+        parachuteFallSound = GetComponent<AudioSource>();
         devilMode = DevilMode.falling;
 
         parachute = transform.Find("parachute").gameObject;
@@ -73,7 +75,7 @@ public class DevilHandler : MonoBehaviour {
                 }
             case DevilMode.dead:
                 {
-                    turnAroundPlayer();
+                    turnAroundDevil();
                     transform.position -= new Vector3(0, fallingSpeed * Time.deltaTime * 4);
                     break;
                 }
@@ -90,10 +92,11 @@ public class DevilHandler : MonoBehaviour {
     }
 
     bool turned = false;
-    void turnAroundPlayer()
+    void turnAroundDevil()
     {
         if(!turned)
         {
+            parachuteFallSound.Play();
             transform.Rotate(0,0,180);
         }
         turned = true;
