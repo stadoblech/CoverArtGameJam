@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemiesArealSpawn : MonoBehaviour {
 
     public GameObject devil;
+    public GameObject ghost;
 
     public float respawnCooldown = 0;
 
@@ -12,11 +13,12 @@ public class EnemiesArealSpawn : MonoBehaviour {
 
 
 
-	void Start () {
+	void OnEnable() {
         points = GetComponentsInChildren<Transform>();
         StartCoroutine(spawningEnemy(respawnCooldown));
     }
 	
+
     IEnumerator spawningEnemy(float t)
     {
         yield return new WaitForSeconds(t);

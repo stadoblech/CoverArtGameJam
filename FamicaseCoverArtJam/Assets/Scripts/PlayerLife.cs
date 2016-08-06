@@ -14,16 +14,25 @@ public class PlayerLife : MonoBehaviour {
 
     GameController controller;
 
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
     void Start () {
         controller = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameController>();
         controlls = GetComponent<PlayerControlls>();
-        sr = GetComponent<SpriteRenderer>();
+        
         numberOfLives = 3;
         numberOfBlinks = 6;
         blinkDuration = 0.1f;
 	}
+
+    void OnEnable()
+    {
+        sr.enabled = true;
+    }
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
